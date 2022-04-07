@@ -40,7 +40,7 @@ async function add_test(do_test, name) {
   }
 }
 
-function run_tests() {
+async function run_tests() {
   console.log(`${test_count - fail_count} of ${test_count} tests pass.`);
 
   await add_test(test_example, "Example test.");
