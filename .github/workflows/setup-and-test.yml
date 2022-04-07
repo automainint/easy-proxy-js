@@ -1,0 +1,34 @@
+name: setup-and-test
+
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Tor daemon
+        uses: tor-actions/setup-tor@v1.0.0
+        with:
+          daemon: true
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.1.0
+        with:
+          node-version: 16
+
+      - name: Install the package
+        run: |
+          npm install
+
+      - name: Run tests
+        run: |
+          node test.js
