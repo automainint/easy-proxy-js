@@ -6,5 +6,10 @@ Setup proxy for `fetch`.
 
 ##  Test
 - Start a socks proxy daemon on port `9050`.
-- Install: `npm install`
-- Run tests: `node test.js`
+- Install the package.
+- Run tests.
+
+```shell
+npm install
+node test.js
+```
